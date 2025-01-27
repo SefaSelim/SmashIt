@@ -1,11 +1,18 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HitControl : MonoBehaviour
 {
+    [SerializeField] private CameraShake cameraShake;
+
     [SerializeField] private GameObject hitArea; // The object to modify opacity
-    [SerializeField] private float maxOpacity; // Target opacity value
     [SerializeField] private float loadTime; // Time to reach maxOpacity
+
+    public float maxOpacity; // Target opacity value
+    public float currentOpacity; // Current opacity value
+
+    PolygonCollider2D PolygonCollider2D;
 
     private SpriteRenderer hitAreaRenderer; // Renderer to modify opacity
     private Color hitAreaColor; // Color of the hitArea
@@ -23,6 +30,7 @@ public class HitControl : MonoBehaviour
         {
             Debug.LogError("hitArea does not have a SpriteRenderer component.");
         }
+        PolygonCollider2D = GetComponent<PolygonCollider2D>();
     }
 
     void Update()
@@ -32,15 +40,30 @@ public class HitControl : MonoBehaviour
             timer += Time.deltaTime;
 
             // Calculate the current opacity based on how long the button is held
-            float currentOpacity = Mathf.Lerp(0.05f, maxOpacity / 255f, timer / loadTime);
+            currentOpacity = Mathf.Lerp(0.05f, maxOpacity / 255f, timer / loadTime);
             SetOpacity(currentOpacity);
         }
         else if (Input.GetMouseButtonUp(0))
         {
             timer = 0f;
             SetOpacity(0.05f); // Reset opacity
-            Debug.Log("Hit!");
-        } 
+
+            //Hit detection
+            PolygonCollider2D.enabled = true;
+            cameraShake.Shake();
+
+
+        }
+        else if(PolygonCollider2D.enabled)
+        {
+            timer += Time.deltaTime;
+            if (timer >= 0.05f)
+            {
+                timer = 0f;
+                PolygonCollider2D.enabled = false;
+            }
+        }
+
 
     }
 
