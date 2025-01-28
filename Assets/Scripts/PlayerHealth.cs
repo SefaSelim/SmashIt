@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    float playerHealth = 100;
     void Start()
     {
         
@@ -18,9 +17,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        playerHealth -= amount;
-        Debug.Log("player health is : "  + playerHealth);
-        if(playerHealth <= 0)
+        PlayerStats.PlayerHealth -= amount;
+        Debug.Log("player health is : "  + PlayerStats.PlayerHealth);
+        if(PlayerStats.PlayerHealth <= 0)
         {
             PlayerDie();
         }

@@ -374,6 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 519420033}
+  HitArea: {fileID: 2015172884}
 --- !u!1 &788633828
 GameObject:
   m_ObjectHideFlags: 0

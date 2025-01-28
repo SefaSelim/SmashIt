@@ -33,7 +33,7 @@ public class EnemyHitBox : MonoBehaviour
                 Debug.Log("Hit Enemy " + enemytakendamage + " Damage");
 
                 Knockback(transform.position - Player.transform.position);
-            Invoke("KnockbackReset", 0.15f);
+                Invoke("KnockbackReset", PlayerStats.KnockbackDuration);
 
         }
            
