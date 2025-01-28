@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DemonEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3878965518110169005, guid: 76b1bba8b87072642b7f94c209029be1, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6240717305700200508, guid: 76b1bba8b87072642b7f94c209029be1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -706,7 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1380111268}
-  meleeEnemySpeed: 2.5
+  meleeEnemySpeed: 1
 --- !u!1001 &1965484774
 PrefabInstance:
   m_ObjectHideFlags: 0

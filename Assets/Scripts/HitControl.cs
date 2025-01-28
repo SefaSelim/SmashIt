@@ -58,7 +58,7 @@ public class HitControl : MonoBehaviour
             //Hit detection
             timer2 = 0f;
             PolygonCollider2D.enabled = true;
-            cameraShake.Shake();
+            
 
 
         }
@@ -73,6 +73,14 @@ public class HitControl : MonoBehaviour
         }
 
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            cameraShake.Shake();
+        }
     }
 
     private void SetOpacity(float opacity)
