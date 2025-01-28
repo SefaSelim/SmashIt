@@ -12,6 +12,9 @@ public class HitControl : MonoBehaviour
     public float maxOpacity; // Target opacity value
     public float currentOpacity; // Current opacity value
 
+    public float timeBetweenHits = 0.5f;
+    private float timer2 = 0f;
+
     PolygonCollider2D PolygonCollider2D;
 
     private SpriteRenderer hitAreaRenderer; // Renderer to modify opacity
@@ -35,7 +38,9 @@ public class HitControl : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0)) // Holding the mouse button
+        timer2 += Time.deltaTime;
+
+        if (Input.GetMouseButton(0) && timer2 >= timeBetweenHits) // Holding the mouse button
         {
             timer += Time.deltaTime;
 
@@ -43,12 +48,13 @@ public class HitControl : MonoBehaviour
             currentOpacity = Mathf.Lerp(0.05f, maxOpacity / 255f, timer / loadTime);
             SetOpacity(currentOpacity);
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) && timer2 >= timeBetweenHits)
         {
             timer = 0f;
             SetOpacity(0.05f); // Reset opacity
 
             //Hit detection
+            timer2 = 0f;
             PolygonCollider2D.enabled = true;
             cameraShake.Shake();
 
