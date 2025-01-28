@@ -9,6 +9,8 @@ public class HitControl : MonoBehaviour
     [SerializeField] private GameObject hitArea; // The object to modify opacity
     [SerializeField] private float loadTime; // Time to reach maxOpacity
 
+    public float playerAttackMultiplier = 1;
+
     public float maxOpacity; // Target opacity value
     public float currentOpacity; // Current opacity value
 
