@@ -620,7 +620,10 @@ MonoBehaviour:
   enemygivendamage: 20
   _EnemyHealth: {fileID: 1553106344}
   _PlayerHealth: {fileID: 1380111272}
+  EnemyRB: {fileID: 1553106343}
   HitArea: {fileID: 2015172884}
+  Player: {fileID: 1380111265}
+  knockbackForce: 10
 --- !u!70 &1553106342
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

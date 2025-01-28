@@ -6,13 +6,18 @@ public class EnemyHitBox : MonoBehaviour
 {
     public float MaxTakenDamageFromPlayer = 100f;
     public float enemytakendamage;
-    float enemyHitCooldown = 0.25f;
+    float enemyHitCooldown = 1f;
     float timer;
     public float enemygivendamage = 10;
     public EnemyHealth _EnemyHealth;
     public PlayerHealth _PlayerHealth;
 
+    [SerializeField] private Rigidbody2D EnemyRB;
+
     [SerializeField] private HitControl HitArea;
+    [SerializeField] private GameObject Player;
+
+    [SerializeField] private float knockbackForce;
 
      void Start()
     {   
@@ -27,7 +32,10 @@ public class EnemyHitBox : MonoBehaviour
                 _EnemyHealth.TakeDamageEnemy(enemytakendamage);
                 Debug.Log("Hit Enemy " + enemytakendamage + " Damage");
 
-            }
+                Knockback(transform.position - Player.transform.position);
+            Invoke("KnockbackReset", 0.15f);
+
+        }
            
     }
     
@@ -39,6 +47,18 @@ public class EnemyHitBox : MonoBehaviour
                 _PlayerHealth.TakeDamage(enemygivendamage);
                 timer = 0;
             }
+    }
+
+    private void Knockback(Vector2 direction)
+    {
+        EnemyRB.AddForce(255 * HitArea.currentOpacity / HitArea.maxOpacity * direction.normalized * PlayerStats.KnokbackForce, ForceMode2D.Impulse);
+    }
+
+
+    
+    private void KnockbackReset()
+    {
+        EnemyRB.velocity = Vector2.zero;
     }
 
 }
