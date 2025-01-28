@@ -1380,8 +1380,10 @@ MonoBehaviour:
   cameraShake: {fileID: 519420034}
   hitArea: {fileID: 2015172881}
   loadTime: 1.5
+  playerAttackMultiplier: 1
   maxOpacity: 200
   currentOpacity: 0
+  timeBetweenHits: 0.5
 --- !u!60 &2015172885
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class EnemyHitBox : MonoBehaviour
     {
             if (collision.gameObject.CompareTag("HitArea"))
             {
-                Debug.Log("Hit Enemy " + MaxTakenDamageFromPlayer * 255 * HitArea.currentOpacity / HitArea.maxOpacity + " Damage");
+                Debug.Log("Hit Enemy " + HitArea.playerAttackMultiplier * MaxTakenDamageFromPlayer * 255 * HitArea.currentOpacity / HitArea.maxOpacity + " Damage");
             }
     }
 }
