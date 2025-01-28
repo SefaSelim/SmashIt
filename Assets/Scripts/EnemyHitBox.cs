@@ -5,8 +5,12 @@ using UnityEngine;
 public class EnemyHitBox : MonoBehaviour
 {
     public float MaxTakenDamageFromPlayer = 100f;
-    public float damage;
+    public float enemytakendamage;
+    float enemyHitCooldown = 0.25f;
+    float timer;
+    public float enemygivendamage = 10;
     public EnemyHealth _EnemyHealth;
+    public PlayerHealth _PlayerHealth;
 
     [SerializeField] private HitControl HitArea;
 
@@ -19,10 +23,22 @@ public class EnemyHitBox : MonoBehaviour
     {
             if (collision.gameObject.CompareTag("HitArea"))
             {
-                 damage = HitArea.playerAttackMultiplier * MaxTakenDamageFromPlayer * 255 * HitArea.currentOpacity / HitArea.maxOpacity;
-                _EnemyHealth.TakeDamageEnemy(damage);
-                Debug.Log("Hit Enemy " + damage + " Damage");
+                 enemytakendamage = HitArea.playerAttackMultiplier * MaxTakenDamageFromPlayer * 255 * HitArea.currentOpacity / HitArea.maxOpacity;
+                _EnemyHealth.TakeDamageEnemy(enemytakendamage);
+                Debug.Log("Hit Enemy " + enemytakendamage + " Damage");
 
             }
+           
     }
+    
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+         timer += Time.deltaTime;
+         if(collision.gameObject.CompareTag("Player") && timer > enemyHitCooldown )
+            {
+                _PlayerHealth.TakeDamage(enemygivendamage);
+                timer = 0;
+            }
+    }
+
 }
