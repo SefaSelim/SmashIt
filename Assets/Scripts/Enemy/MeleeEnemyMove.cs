@@ -14,7 +14,7 @@ public class MeleeEnemyMove : MonoBehaviour
     Vector3 target_position;
     Vector3 enemy_position;
 
-    public float meleeEnemySpeed;
+    
 
     void Start()
     
@@ -65,7 +65,7 @@ public class MeleeEnemyMove : MonoBehaviour
     void MoveMeleeEnemy()
     {
         Vector3 direction = FindShortestPath();
-        transform.position += direction * meleeEnemySpeed * Time.deltaTime; 
+        transform.position += direction * MeleeEnemyStats.meleeEnemySpeed * Time.deltaTime; 
         if(transform.position.x < playerMovement.transform.position.x)
         unitRoot.transform.localScale = new Vector3(-1,1,1);
         else if (transform.position.x > playerMovement.transform.position.x)

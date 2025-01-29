@@ -6,9 +6,14 @@ using UnityEngine;
 using UnityEngine.Events;
 public class EnemyHealth : MonoBehaviour
 {
-    public float enemyHealth = 100;
+    public float enemyHealth;
     void Start()
     {
+        if(gameObject.GetComponent<MeleeEnemyMove>()!=null) //Düşman melee ise
+        {
+            enemyHealth = MeleeEnemyStats.meleeEnemyHealth;
+        }
+            //Ranged ise RangedEnemyStats...
     }
 
 

@@ -1053,7 +1053,6 @@ MonoBehaviour:
   _prefabs: {fileID: 0}
   unitRoot: {fileID: 0}
   playerMovement: {fileID: 0}
-  meleeEnemySpeed: 3
 --- !u!114 &1397626928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1081,7 +1080,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxTakenDamageFromPlayer: 100
   enemytakendamage: 0
-  enemygivendamage: 20
   _EnemyHealth: {fileID: 1397626928}
   _PlayerHealth: {fileID: 1380111272}
   EnemyRB: {fileID: 1397626931}
@@ -1168,7 +1166,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxTakenDamageFromPlayer: 100
   enemytakendamage: 0
-  enemygivendamage: 20
   _EnemyHealth: {fileID: 1553106344}
   _PlayerHealth: {fileID: 1380111272}
   EnemyRB: {fileID: 1553106343}
@@ -1264,7 +1261,6 @@ MonoBehaviour:
   _prefabs: {fileID: 0}
   unitRoot: {fileID: 0}
   playerMovement: {fileID: 0}
-  meleeEnemySpeed: 3
 --- !u!1 &1893372614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,6 +1468,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9161682809844263777, guid: fdc2d9849cd4d084da0483da67928588, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 9161682809844263777, guid: fdc2d9849cd4d084da0483da67928588, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
@@ -1863,7 +1863,6 @@ MonoBehaviour:
   _prefabs: {fileID: 0}
   unitRoot: {fileID: 0}
   playerMovement: {fileID: 0}
-  meleeEnemySpeed: 3
 --- !u!114 &2141405506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1891,7 +1890,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxTakenDamageFromPlayer: 100
   enemytakendamage: 0
-  enemygivendamage: 20
   _EnemyHealth: {fileID: 2141405506}
   _PlayerHealth: {fileID: 1380111272}
   EnemyRB: {fileID: 2141405509}
