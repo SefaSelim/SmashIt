@@ -8,17 +8,18 @@ using UnityEngine.Events;
 public class PlayerMovement : MonoBehaviour
 {
     public SPUM_Prefabs _prefabs;
-    public float PlayerMovementSpeed = 4f;
+   
     private PlayerState _currentState;
 
     public Dictionary<PlayerState, int> IndexPair = new();
-
+    public GameObject unitRoot;
+    public GameObject l_Weapon;
     public Vector3 characterPos;
     private Vector3 _movementInput;
 
     void Start()
     {
-
+        transform.localScale = PlayerStats.PlayerScale;
         if (_prefabs == null)
         {
             _prefabs = transform.GetChild(0).GetComponent<SPUM_Prefabs>();
@@ -71,18 +72,19 @@ public class PlayerMovement : MonoBehaviour
         characterPos = this.transform.position;
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (mousePos.x > characterPos.x)
-            _prefabs.transform.localScale = new Vector3(-1 * Math.Abs(_prefabs.transform.localScale.x), _prefabs.transform.localScale.y , _prefabs.transform.localPosition.z);
-
-        else if (mousePos.x < characterPos.x)
-            _prefabs.transform.localScale = new Vector3( Math.Abs(_prefabs.transform.localScale.x), _prefabs.transform.localScale.y, _prefabs.transform.localPosition.z);
+        if (mousePos.x > characterPos.x){
+            unitRoot.transform.localScale = new Vector3(-1,1,1);
+            }
+        else if (mousePos.x < characterPos.x){
+            unitRoot.transform.localScale = new Vector3(1,1,1);
+              }
     }
     void HandleMovement()
     {
         if (_currentState == PlayerState.MOVE)
         {
             Vector3 direction = _movementInput.normalized;
-            transform.position += direction * PlayerMovementSpeed * Time.deltaTime;
+            transform.position += direction * PlayerStats.PlayerMovementSpeed * Time.deltaTime;
         }
     }
 }

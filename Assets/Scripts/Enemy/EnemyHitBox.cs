@@ -10,8 +10,6 @@ public class EnemyHitBox : MonoBehaviour
 
     float timer;
     float knockbackDebugTimer;
-
-    public float enemygivendamage = 10;
     public EnemyHealth _EnemyHealth;
     public PlayerHealth _PlayerHealth;
 
@@ -60,7 +58,7 @@ public class EnemyHitBox : MonoBehaviour
     {
          if(collision.gameObject.CompareTag("Player") && timer > enemyHitCooldown )
             {
-                _PlayerHealth.TakeDamage(enemygivendamage);
+                _PlayerHealth.TakeDamage(MeleeEnemyStats.enemyGivenDamage);
                 timer = 0;
             }
     }
