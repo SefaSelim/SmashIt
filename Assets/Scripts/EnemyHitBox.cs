@@ -49,7 +49,7 @@ public class EnemyHitBox : MonoBehaviour
     {
             if (collision.gameObject.CompareTag("HitArea"))
             {
-                 enemytakendamage = HitArea.playerAttackMultiplier * MaxTakenDamageFromPlayer * 255 * HitArea.currentOpacity / HitArea.maxOpacity;
+                 enemytakendamage = PlayerStats.PlayerAttackMultiplier * MaxTakenDamageFromPlayer * HitArea.ChargeAmount;
                 _EnemyHealth.TakeDamageEnemy(enemytakendamage);
                 Debug.Log("Hit Enemy " + enemytakendamage + " Damage");
 
@@ -71,7 +71,7 @@ public class EnemyHitBox : MonoBehaviour
 
     private void Knockback(Vector2 direction)
     {
-        EnemyRB.AddForce(255 * HitArea.currentOpacity / HitArea.maxOpacity * direction.normalized * PlayerStats.KnokbackForce, ForceMode2D.Impulse);
+        EnemyRB.AddForce(HitArea.ChargeAmount * direction.normalized * PlayerStats.KnokbackForce, ForceMode2D.Impulse);
     }
     
     private void KnockbackReset()

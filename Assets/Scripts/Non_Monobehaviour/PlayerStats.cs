@@ -14,5 +14,8 @@ public static class PlayerStats
     //CAMERASHAKE.CS
     public static float CameraShakeDuration = 1f;          // Kamera sallanma hýzý
 
+    //HITCONTROL.CS
+    public static float PlayerAttackMultiplier = 1f;       // Kullanýcýnýn saldýrý gücü
+
 
 }
