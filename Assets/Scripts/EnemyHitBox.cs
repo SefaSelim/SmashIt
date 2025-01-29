@@ -16,10 +16,7 @@ public class EnemyHitBox : MonoBehaviour
     public PlayerHealth _PlayerHealth;
 
     [SerializeField] private Rigidbody2D EnemyRB;
-
-    [SerializeField] private HitControl HitArea;
     [SerializeField] private GameObject Player;
-
     [SerializeField] private float knockbackForce;
 
      void Start()
@@ -49,7 +46,7 @@ public class EnemyHitBox : MonoBehaviour
     {
             if (collision.gameObject.CompareTag("HitArea"))
             {
-                 enemytakendamage = PlayerStats.PlayerAttackMultiplier * MaxTakenDamageFromPlayer * HitArea.ChargeAmount;
+                 enemytakendamage = PlayerStats.PlayerAttackMultiplier * MaxTakenDamageFromPlayer * PlayerStats.ChargeAmount;
                 _EnemyHealth.TakeDamageEnemy(enemytakendamage);
                 Debug.Log("Hit Enemy " + enemytakendamage + " Damage");
 
@@ -59,8 +56,7 @@ public class EnemyHitBox : MonoBehaviour
         }
            
     }
-    
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
          if(collision.gameObject.CompareTag("Player") && timer > enemyHitCooldown )
             {
@@ -71,7 +67,7 @@ public class EnemyHitBox : MonoBehaviour
 
     private void Knockback(Vector2 direction)
     {
-        EnemyRB.AddForce(HitArea.ChargeAmount * direction.normalized * PlayerStats.KnokbackForce, ForceMode2D.Impulse);
+        EnemyRB.AddForce(PlayerStats.ChargeAmount * direction.normalized * PlayerStats.KnokbackForce, ForceMode2D.Impulse);
     }
     
     private void KnockbackReset()

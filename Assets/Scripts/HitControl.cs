@@ -11,7 +11,7 @@ public class HitControl : MonoBehaviour
 
     public float maxOpacity; // Target opacity value
     public float currentOpacity; // Current opacity value
-    public float ChargeAmount; // 0f - 1f
+    private float ChargeAmount; // 0f - 1f
 
     public float timeBetweenHits = 0.5f;
     private float timer2 = 0f;
@@ -79,6 +79,7 @@ public class HitControl : MonoBehaviour
             ChargeAmount = 0f;
         }
 
+        PlayerStats.ChargeAmount = ChargeAmount;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -18,4 +18,9 @@ public static class PlayerStats
     public static float PlayerAttackMultiplier = 1f;       // Kullanýcýnýn saldýrý gücü
 
 
+
+
+    //DYNAMIC VARIABLES ( USE READONLY )
+    public static float ChargeAmount;                      // Players attack charge amount  ( 0f to 1f )
+
 }
