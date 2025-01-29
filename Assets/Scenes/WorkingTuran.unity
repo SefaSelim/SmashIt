@@ -1050,8 +1050,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac7cba175d87044e85a776a5d743894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 1380111268}
-  meleeEnemySpeed: 1
+  _prefabs: {fileID: 0}
+  unitRoot: {fileID: 0}
+  playerMovement: {fileID: 0}
+  meleeEnemySpeed: 3
 --- !u!114 &1397626928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1065,7 +1067,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 100
-  _prefabs: {fileID: 1397626932}
 --- !u!114 &1397626929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1148,33 +1149,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1397626932 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3960879025418856560, guid: 76b1bba8b87072642b7f94c209029be1, type: 3}
-  m_PrefabInstance: {fileID: 1977944434}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1397626926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28ac21711b0ec40a0812d33a586eb7ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1553106338 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3878965518110169005, guid: 76b1bba8b87072642b7f94c209029be1, type: 3}
   m_PrefabInstance: {fileID: 499687514}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1553106339 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3960879025418856560, guid: 76b1bba8b87072642b7f94c209029be1, type: 3}
-  m_PrefabInstance: {fileID: 499687514}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553106338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28ac21711b0ec40a0812d33a586eb7ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1553106341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,7 +1249,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 100
-  _prefabs: {fileID: 1553106339}
 --- !u!114 &1553106345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1283,8 +1261,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac7cba175d87044e85a776a5d743894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 1380111268}
-  meleeEnemySpeed: 1
+  _prefabs: {fileID: 0}
+  unitRoot: {fileID: 0}
+  playerMovement: {fileID: 0}
+  meleeEnemySpeed: 3
 --- !u!1 &1893372614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,8 +1860,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac7cba175d87044e85a776a5d743894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 1380111268}
-  meleeEnemySpeed: 1
+  _prefabs: {fileID: 0}
+  unitRoot: {fileID: 0}
+  playerMovement: {fileID: 0}
+  meleeEnemySpeed: 3
 --- !u!114 &2141405506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1895,7 +1877,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 100
-  _prefabs: {fileID: 2141405510}
 --- !u!114 &2141405507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1978,17 +1959,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2141405510 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3960879025418856560, guid: 76b1bba8b87072642b7f94c209029be1, type: 3}
-  m_PrefabInstance: {fileID: 23965056}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141405504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28ac21711b0ec40a0812d33a586eb7ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
