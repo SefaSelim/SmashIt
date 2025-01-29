@@ -7,7 +7,10 @@ public class EnemyHitBox : MonoBehaviour
     public float MaxTakenDamageFromPlayer = 100f;
     public float enemytakendamage;
     float enemyHitCooldown = 1f;
+
     float timer;
+    float knockbackDebugTimer;
+
     public float enemygivendamage = 10;
     public EnemyHealth _EnemyHealth;
     public PlayerHealth _PlayerHealth;
@@ -22,6 +25,24 @@ public class EnemyHitBox : MonoBehaviour
      void Start()
     {   
           _EnemyHealth = GetComponent<EnemyHealth>();
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        knockbackDebugTimer += Time.deltaTime;
+
+        if (EnemyRB.velocity != Vector2.zero)
+        {
+            if (knockbackDebugTimer >= PlayerStats.KnockbackDuration)
+            {
+                EnemyRB.velocity = Vector2.zero;
+            }
+        }
+        else
+        {
+            knockbackDebugTimer = 0;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,7 +62,6 @@ public class EnemyHitBox : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D collision)
     {
-         timer += Time.deltaTime;
          if(collision.gameObject.CompareTag("Player") && timer > enemyHitCooldown )
             {
                 _PlayerHealth.TakeDamage(enemygivendamage);
@@ -53,8 +73,6 @@ public class EnemyHitBox : MonoBehaviour
     {
         EnemyRB.AddForce(255 * HitArea.currentOpacity / HitArea.maxOpacity * direction.normalized * PlayerStats.KnokbackForce, ForceMode2D.Impulse);
     }
-
-
     
     private void KnockbackReset()
     {
