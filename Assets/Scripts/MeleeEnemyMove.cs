@@ -9,7 +9,7 @@ public class MeleeEnemyMove : MonoBehaviour
     Vector3 target_position;
     Vector3 enemy_position;
 
-    public float meleeEnemySpeed = 2.5f;
+    public float meleeEnemySpeed;
 
     void Start()
     {

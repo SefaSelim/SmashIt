@@ -9,10 +9,9 @@ public class HitControl : MonoBehaviour
     [SerializeField] private GameObject hitArea; // The object to modify opacity
     [SerializeField] private float loadTime; // Time to reach maxOpacity
 
-    public float playerAttackMultiplier = 1;
-
     public float maxOpacity; // Target opacity value
     public float currentOpacity; // Current opacity value
+    private float ChargeAmount; // 0f - 1f
 
     public float timeBetweenHits = 0.5f;
     private float timer2 = 0f;
@@ -49,6 +48,9 @@ public class HitControl : MonoBehaviour
             // Calculate the current opacity based on how long the button is held
             currentOpacity = Mathf.Lerp(0.05f, maxOpacity / 255f, timer / loadTime);
             SetOpacity(currentOpacity);
+
+            ChargeAmount = (currentOpacity - 0.05f )/( maxOpacity / 255f - 0.05f );
+
         }
         else if (Input.GetMouseButtonUp(0) && timer2 >= timeBetweenHits)
         {
@@ -58,7 +60,7 @@ public class HitControl : MonoBehaviour
             //Hit detection
             timer2 = 0f;
             PolygonCollider2D.enabled = true;
-            cameraShake.Shake();
+            
 
 
         }
@@ -71,8 +73,21 @@ public class HitControl : MonoBehaviour
                 PolygonCollider2D.enabled = false;
             }
         }
+        else
+        {
+            SetOpacity(0.05f); // Reset opacity
+            ChargeAmount = 0f;
+        }
 
+        PlayerStats.ChargeAmount = ChargeAmount;
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            cameraShake.Shake();
+        }
     }
 
     private void SetOpacity(float opacity)
