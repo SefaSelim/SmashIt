@@ -321,6 +321,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2141405505}
   m_SourcePrefab: {fileID: 100100000, guid: 76b1bba8b87072642b7f94c209029be1, type: 3}
+--- !u!1 &348312608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7779602324726795661, guid: fdc2d9849cd4d084da0483da67928588, type: 3}
+  m_PrefabInstance: {fileID: 1965484774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &499687514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -933,7 +938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabs: {fileID: 1380111266}
-  PlayerMovementSpeed: 4
+  unitRoot: {fileID: 348312608}
+  l_Weapon: {fileID: 788633828}
   characterPos: {x: 0, y: 0, z: 0}
 --- !u!224 &1380111269 stripped
 RectTransform:
@@ -1428,11 +1434,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5346802263427283330, guid: fdc2d9849cd4d084da0483da67928588, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 5346802263427283330, guid: fdc2d9849cd4d084da0483da67928588, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 5346802263427283330, guid: fdc2d9849cd4d084da0483da67928588, type: 3}
       propertyPath: m_LocalPosition.x

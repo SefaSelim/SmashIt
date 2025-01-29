@@ -5,17 +5,20 @@ using UnityEngine;
 public static class PlayerStats
 {
     //ENEMYHITBOX.CS
-    public static float KnokbackForce = 10f;            // Ýtme kuvveti
-    public static float KnockbackDuration = 0.15f;      // Ýtmenin ne kadar süre uygulanacaðý
+    public static float KnokbackForce = 10f;            // ï¿½tme kuvveti
+    public static float KnockbackDuration = 0.15f;      // ï¿½tmenin ne kadar sï¿½re uygulanacaï¿½ï¿½
 
+    //PLAYERMOVEMENT.CS
+     public static float PlayerMovementSpeed = 4f; //KullanÄ±cÄ± hareket hÄ±zÄ±
+     public static Vector3 PlayerScale = new Vector3(1.25f,1.25f,1); //KullanÄ±cÄ± bÃ¼yÃ¼klÃ¼ÄŸÃ¼ (movementÄ±n startta ayarlanÄ±yor)
     //PLAYERHEALTH.CS
-    public static float PlayerHealth = 100f;            // Kullanýcýnýn caný
+    public static float PlayerHealth = 100f;            // Kullanï¿½cï¿½nï¿½n canï¿½
 
     //CAMERASHAKE.CS
-    public static float CameraShakeDuration = 1f;          // Kamera sallanma hýzý
+    public static float CameraShakeDuration = 1f;          // Kamera sallanma hï¿½zï¿½
 
     //HITCONTROL.CS
-    public static float PlayerAttackMultiplier = 1f;       // Kullanýcýnýn saldýrý gücü
+    public static float PlayerAttackMultiplier = 1f;       // Kullanï¿½cï¿½nï¿½n saldï¿½rï¿½ gï¿½cï¿½
 
 
 
