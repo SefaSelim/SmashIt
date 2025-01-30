@@ -9,6 +9,6 @@ public class Player_HealthbarSet : MonoBehaviour
 
     private void Update()
     {
-        Healthbar.fillAmount = PlayerStats.PlayerHealth / 100;
+        Healthbar.fillAmount = PlayerStats.PlayerHealth / PlayerStats.PlayerMaxHealth;
     }
 }

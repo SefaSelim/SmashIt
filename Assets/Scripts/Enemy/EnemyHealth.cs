@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     public float enemyHealth;
+    public float maxEnemyHealth = 100;
 
     [SerializeField] private Image healthBar;
     void Start()
@@ -25,7 +26,8 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamageEnemy(float amount)
     {
         enemyHealth -= amount;
-        healthBar.fillAmount = 1 - (enemyHealth / 100);
+        healthBar.fillAmount = enemyHealth / maxEnemyHealth;
+
         Debug.Log("enemy health is: " + enemyHealth);
         if (enemyHealth <= 0)
         {
