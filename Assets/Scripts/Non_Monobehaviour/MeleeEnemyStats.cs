@@ -5,7 +5,8 @@ using UnityEngine;
 public class MeleeEnemyStats : MonoBehaviour
 {
     //ENEMYHEALTH.CS
-    public static float meleeEnemyHealth = 100; 
+    public static float meleeEnemyHealth = 200; 
+    public static float meleeEnemyMaxHealth = 200;
     //MELEEENEMYMOVE.CS
     public static float meleeEnemySpeed = 3;
 
