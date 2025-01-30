@@ -13,6 +13,7 @@ public static class PlayerStats
      public static Vector3 PlayerScale = new Vector3(1.25f,1.25f,1); //Kullanıcı büyüklüğü (movementın startta ayarlanıyor)
     //PLAYERHEALTH.CS
     public static float PlayerHealth = 100f;            // Kullan�c�n�n can�
+    public static float PlayerMaxHealth = 100f;         // Kullan�c�n�n maksimum can�
 
     //CAMERASHAKE.CS
     public static float CameraShakeDuration = 1f;          // Kamera sallanma h�z�
