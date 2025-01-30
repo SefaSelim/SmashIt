@@ -7,8 +7,8 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
-    public float enemyHealth;
-    public float maxEnemyHealth = 100;
+    [HideInInspector] public float enemyHealth;
+    [HideInInspector] public float maxEnemyHealth;
 
     [SerializeField] private Image healthBar;
     void Start()
@@ -16,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
         if (gameObject.GetComponent<MeleeEnemyMove>() != null) //Düşman melee ise ranged ise rangedstats eklenmeli
         {
             enemyHealth = MeleeEnemyStats.meleeEnemyHealth;
+            maxEnemyHealth = MeleeEnemyStats.meleeEnemyMaxHealth;
         }
     }
 
