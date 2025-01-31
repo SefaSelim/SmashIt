@@ -21,6 +21,9 @@ public static class PlayerStats
     //HITCONTROL.CS
     public static float PlayerAttackMultiplier = 1f;       // Kullan�c�n�n sald�r� g�c�
 
+    //COINSPAWNER.CS
+    public static int CoinAmount = 0;                      // Kullan�c�n�n toplad��� alt�n say�s�   
+
 
 
 

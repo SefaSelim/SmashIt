@@ -10,6 +10,9 @@ public class EnemyHealth : MonoBehaviour
     [HideInInspector] public float enemyHealth;
     [HideInInspector] public float maxEnemyHealth;
 
+    [SerializeField] private CoinSpawner coinSpawner;
+    public int CoinEarningFromEnemy;
+
     [SerializeField] private Image healthBar;
     void Start()
     {
@@ -33,6 +36,7 @@ public class EnemyHealth : MonoBehaviour
         if (enemyHealth <= 0)
         {
             EnemyDie();
+            coinSpawner.SpawnCoin(CoinEarningFromEnemy);
         }
     }
     private void EnemyDie()
