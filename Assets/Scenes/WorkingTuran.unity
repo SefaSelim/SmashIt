@@ -753,7 +753,7 @@ MonoBehaviour:
   swingAmplitude: 0.2
   swingSpeed: 5
   rotationSmoothness: 10
-  attackSpeed: 10
+  attackSpeed: 5
   attackArcRadius: 2
 --- !u!1 &790794551
 GameObject:
