@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 975aabec20c994d44ba65842ea0a83ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _circleCollider2D: {fileID: 1990879209560543764}
   CoinSpeed: 10
+  RadiusOfCollect: 1
   CoinPosition: {fileID: 7544123016963999826}
 --- !u!58 &1990879209560543764
 CircleCollider2D:
