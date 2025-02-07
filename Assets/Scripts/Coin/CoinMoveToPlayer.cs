@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CoinMoveToPlayer : MonoBehaviour
 {
+    [SerializeField] private CircleCollider2D _circleCollider2D;
+
     public float CoinSpeed = 2.5f;
+    public float RadiusOfCollect = 1f;
 
     Vector2 PlayerPosition;
     Vector2 direction;
@@ -24,6 +27,12 @@ public class CoinMoveToPlayer : MonoBehaviour
 
     }
 
+
+    private void Start()
+    {
+        _circleCollider2D.radius = RadiusOfCollect;
+        _circleCollider2D.offset = new Vector2(0, 0);
+    }
 
     private void Update()
     {

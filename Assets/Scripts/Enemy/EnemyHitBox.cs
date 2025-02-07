@@ -58,7 +58,7 @@ public class EnemyHitBox : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-         if(collision.gameObject.CompareTag("Player") && timer > enemyHitCooldown )
+         if(collision.gameObject.CompareTag("Player") && timer > enemyHitCooldown && !PlayerStats.IsDashing)
             {
                 _PlayerHealth.TakeDamage(MeleeEnemyStats.enemyGivenDamage);
                 timer = 0;

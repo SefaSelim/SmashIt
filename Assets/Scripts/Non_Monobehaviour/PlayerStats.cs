@@ -7,9 +7,10 @@ public static class PlayerStats
     //ENEMYHITBOX.CS
     public static float KnokbackForce = 10f;            // �tme kuvveti
     public static float KnockbackDuration = 0.15f;      // �tmenin ne kadar s�re uygulanaca��
+    public static bool IsDashing = false;               // is player dashing
 
     //PLAYERMOVEMENT.CS
-     public static float PlayerMovementSpeed = 4f; //Kullanıcı hareket hızı
+    public static float PlayerMovementSpeed = 4f; //Kullanıcı hareket hızı
      public static Vector3 PlayerScale = new Vector3(1.25f,1.25f,1); //Kullanıcı büyüklüğü (movementın startta ayarlanıyor)
     //PLAYERHEALTH.CS
     public static float PlayerHealth = 100f;            // Kullan�c�n�n can�
