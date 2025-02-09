@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -24,6 +25,12 @@ public class ItemHandler : MonoBehaviour
 
         image.sprite = Item.itemSprite;
         button.onClick.AddListener(ShowItemExplanation);
+
+        //-----silinecek------
+        StaticItemExplainer.AttackIncreaser += Item.AttackDamageIncreaser;
+        StaticItemExplainer.HealthIncreaser += Item.HealthIncreaser;
+        StaticItemExplainer.SpeedIncreaser += Item.SpeedIncreaser;
+        //-----silinecek------
     }
 
 }
