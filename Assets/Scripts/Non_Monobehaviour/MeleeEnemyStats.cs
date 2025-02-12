@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeEnemyStats : MonoBehaviour
+public static class MeleeEnemyStats
 {
     //ENEMYHEALTH.CS
     public static float meleeEnemyHealth = 200; 

@@ -8,25 +8,27 @@ public class Sword : MonoBehaviour
     public float swingAmplitude = 0.2f;
     public float swingSpeed = 5f;
     public float rotationSmoothness = 10f;
+    public Vector2 characterOffset = new Vector2(0f, 0.5f); // Karakter merkez noktası için offset
 
     private float time;
     private bool isAttacking = false;
     private float attackProgress = 0f;
-    public float attackSpeed = 6f; // Saldırı hızı
-    public float attackArcRadius = 2f; // Yay genişliği
+    public float attackSpeed = 6f;
+    public float attackArcRadius = 2f;
 
     private Vector2 attackDirection;
 
     void Update()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = (mousePosition - (Vector2)player.position).normalized;
+        Vector2 playerCenterPosition = (Vector2)player.position + characterOffset; // Offset eklenmiş merkez pozisyon
+        Vector2 direction = (mousePosition - playerCenterPosition).normalized;
 
-        if (Input.GetMouseButtonDown(0) && !isAttacking)
+        if (Input.GetMouseButtonUp(0) && !isAttacking)
         {
             isAttacking = true;
             attackProgress = 0f;
-            attackDirection = direction; // Saldırı başladığında yönü belirle
+            attackDirection = direction;
         }
 
         if (isAttacking)
@@ -44,8 +46,10 @@ public class Sword : MonoBehaviour
         time += Time.deltaTime * swingSpeed;
         float swingOffset = Mathf.Sin(time) * swingAmplitude;
 
-        Vector2 targetPosition = (Vector2)player.position + direction * swordRadius;
-        targetPosition += new Vector2(-direction.y, direction.x) * swingOffset;
+        // Offset eklenmiş merkez pozisyondan hesaplama
+        Vector2 playerCenterPosition = (Vector2)player.position + characterOffset;
+        Vector2 basePosition = playerCenterPosition + direction * swordRadius;
+        Vector2 targetPosition = basePosition + new Vector2(-direction.y, direction.x) * swingOffset;
 
         transform.position = Vector2.Lerp(transform.position, targetPosition, Time.deltaTime * smoothSpeed);
 
@@ -58,23 +62,27 @@ public class Sword : MonoBehaviour
     {
         attackProgress += Time.deltaTime * attackSpeed;
 
-        // Saldırı yönüne göre açıyı ayarla
         float startAngle = 80f;
         float endAngle = -80f;
         float currentAngle = Mathf.Lerp(startAngle, endAngle, attackProgress);
 
-        // Mouse'un olduğu yöne göre saldırı pozisyonu
-        Vector2 attackBasePosition = (Vector2)player.position + attackDirection * swordRadius;
-        Vector2 attackOffset = new Vector2(-attackDirection.y, attackDirection.x) * Mathf.Sin(attackProgress * Mathf.PI) * attackArcRadius;
-        Vector2 attackPosition = attackBasePosition + attackOffset;
+        // Sabit uzaklığı korumak için düzeltilmiş hesaplama
+        float currentRadians = currentAngle * Mathf.Deg2Rad;
+        Vector2 rotatedDirection = new Vector2(
+            Mathf.Cos(currentRadians) * attackDirection.x - Mathf.Sin(currentRadians) * attackDirection.y,
+            Mathf.Sin(currentRadians) * attackDirection.x + Mathf.Cos(currentRadians) * attackDirection.y
+        );
+
+        // Offset eklenmiş merkez pozisyondan hesaplama
+        Vector2 playerCenterPosition = (Vector2)player.position + characterOffset;
+        Vector2 attackPosition = playerCenterPosition + rotatedDirection * swordRadius;
 
         transform.position = attackPosition;
 
-        // Kılıcı açısına göre döndür
-        float newAngle = Mathf.LerpAngle(transform.eulerAngles.z, currentAngle, Time.deltaTime * rotationSmoothness * 2);
-        transform.rotation = Quaternion.Euler(0f, 0f, newAngle);
+        // Kılıcın açısını ayarla
+        float targetAngle = Mathf.Atan2(rotatedDirection.y, rotatedDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, targetAngle);
 
-        // Saldırı tamamlandığında normale dön
         if (attackProgress >= 1f)
         {
             isAttacking = false;
