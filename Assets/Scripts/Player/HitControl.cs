@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HitControl : MonoBehaviour
 {
-    [SerializeField] private CameraShake cameraShake;
 
     [SerializeField] private GameObject hitArea; // The object to modify opacity
     [SerializeField] private float loadTime; // Time to reach maxOpacity
@@ -86,7 +85,7 @@ public class HitControl : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            cameraShake.Shake();
+            ScreenShake.Instance.Shake(0.35f, 7 * ChargeAmount);
         }
     }
 
