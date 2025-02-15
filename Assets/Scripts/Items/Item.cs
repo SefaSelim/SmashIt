@@ -14,14 +14,36 @@ public class Item : ScriptableObject
     //STATS FOR PLAYER
     //buranin devamini yapmam icin konusmamiz lazim, neler eklicez falan diye asagidakileri ornek yazdim
 
-    public float AttackSpeedIncreaser;
-    public float AttackRangeIncreaser;
-    public float AttackDamageIncreaser;
-    public float HealthIncreaser;
-    public float SpeedIncreaser;
-    public float KnockbackIncreaser;
-    public float DashIncreaser;
-    public float CoinIncreaser;
+    [Header("On Screen")]
 
+    public float CriticalChance;
+    public float CriticalDamage;
+    public float AttackRange;
+    public float Lifesteal;
+    public float Regenaration;
+    public float DodgeChance;
+    public float DashCooldown;
+    public float DashAmount;
+    public float DoubleGoldChance;
+    public float Knockback;
+    public float Armor;
+    public float Speed;
+
+    [Space(10)]
+    public int Price;
+    public int ItemAmount;
+
+    [Header("Hide Stats")]
+    public bool isSpecial;
+    public int specialAbilityId;
+    public string RarityColor;
+    public int ItemID;
+
+
+
+    private void OnEnable()
+    {
+        ItemAmount = 0;
+    }
 
 }
