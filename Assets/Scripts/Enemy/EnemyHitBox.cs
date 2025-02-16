@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyHitBox : MonoBehaviour
 {
-    public float MaxTakenDamageFromPlayer = 100f;
+    public float enemyArmor = 1f;
     public float enemytakendamage;
     float enemyHitCooldown = 1f;
 
@@ -45,7 +45,7 @@ public class EnemyHitBox : MonoBehaviour
     {
             if (collision.gameObject.CompareTag("HitArea"))
             {
-                 enemytakendamage = PlayerStats.PlayerAttackMultiplier * MaxTakenDamageFromPlayer * PlayerStats.ChargeAmount;
+                 enemytakendamage = PlayerStats.AttackDamage * enemyArmor * PlayerStats.ChargeAmount;
                 _EnemyHealth.TakeDamageEnemy(enemytakendamage);
                 Debug.Log("Hit Enemy " + enemytakendamage + " Damage");
 

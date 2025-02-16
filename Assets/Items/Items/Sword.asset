@@ -15,11 +15,21 @@ MonoBehaviour:
   itemName: Sword
   Description: This is a Sword
   itemSprite: {fileID: 21300000, guid: f17058e2bd3c44745bd37eb71c41adf1, type: 3}
-  AttackSpeedIncreaser: 0
-  AttackRangeIncreaser: 0
-  AttackDamageIncreaser: 5
-  HealthIncreaser: 10
-  SpeedIncreaser: 15
-  KnockbackIncreaser: 0
-  DashIncreaser: 0
-  CoinIncreaser: 0
+  CriticalChance: 1
+  CriticalDamage: 1
+  AttackRange: 1
+  Lifesteal: 1
+  Regenaration: 1
+  DodgeChance: 1
+  DashCooldown: 1
+  DashAmount: 1
+  DoubleGoldChance: 5
+  Knockback: 5
+  Armor: 5
+  Speed: 5
+  Price: 50
+  ItemAmount: 1
+  isSpecial: 0
+  specialAbilityId: 0
+  RarityColor: 
+  ItemID: 1
