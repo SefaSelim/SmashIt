@@ -27,7 +27,7 @@ MonoBehaviour:
   Knockback: 5
   Armor: 5
   Speed: 5
-  Price: 0
+  Price: 50
   ItemAmount: 1
   isSpecial: 0
   specialAbilityId: 0

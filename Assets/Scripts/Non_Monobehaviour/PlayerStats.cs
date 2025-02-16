@@ -11,7 +11,8 @@ public static class PlayerStats
 
     //PLAYERMOVEMENT.CS
     public static float PlayerMovementSpeed = 4f; //Kullanıcı hareket hızı
-     public static Vector3 PlayerScale = new Vector3(1.25f,1.25f,1); //Kullanıcı büyüklüğü (movementın startta ayarlanıyor)
+    public static Vector3 PlayerScale = new Vector3(1.25f,1.25f,1); //Kullanıcı büyüklüğü (movementın startta ayarlanıyor)
+
     //PLAYERHEALTH.CS
     public static float PlayerHealth = 100f;            // Kullan�c�n�n can�
     public static float PlayerMaxHealth = 100f;         // Kullan�c�n�n maksimum can�
@@ -20,10 +21,12 @@ public static class PlayerStats
     public static float CameraShakeDuration = 1f;          // Kamera sallanma h�z�
 
     //HITCONTROL.CS
-    public static float PlayerAttackMultiplier = 1f;       // Kullan�c�n�n sald�r� g�c�
+    public static float AttackDamage = 100f;              // Kullan�c�n�n sald�r� hasar�
+    public static float RangeAttackDamage = 100f;
 
     //COINSPAWNER.CS
-    public static int CoinAmount = 0;                      // Kullan�c�n�n toplad��� alt�n say�s�   
+    public static int CoinAmount = 0;                     
+    public static int GemAmount = 0;                     
 
 
 
