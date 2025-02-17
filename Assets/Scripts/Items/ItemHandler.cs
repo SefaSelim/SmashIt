@@ -8,6 +8,12 @@ using UnityEngine.UI;
 
 public class ItemHandler : MonoBehaviour
 {
+
+    ItemHandler(Item ExternalItem)
+    {
+        Item = ExternalItem;
+    }
+
     public Item Item;
 
     [SerializeField] private TextMeshProUGUI ItemAmount;

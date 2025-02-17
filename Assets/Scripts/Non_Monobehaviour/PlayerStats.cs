@@ -25,7 +25,7 @@ public static class PlayerStats
     public static float RangeAttackDamage = 100f;
 
     //COINSPAWNER.CS
-    public static int CoinAmount = 0;                     
+    public static int CoinAmount = 500;                     
     public static int GemAmount = 0;                     
 
 
