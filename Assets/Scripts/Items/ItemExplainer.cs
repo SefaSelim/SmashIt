@@ -7,6 +7,7 @@ public class ItemExplainer : MonoBehaviour
 {
     public TextMeshProUGUI ItemExplanation;
 
+    public TextMeshProUGUI ChargeSpeed;
     public TextMeshProUGUI CriticalChance;
     public TextMeshProUGUI CriticalDamage;
     public TextMeshProUGUI AttackRange;
@@ -29,7 +30,7 @@ public class ItemExplainer : MonoBehaviour
     {
         ItemExplanation.text = StaticItemExplainer.Explanation;
 
-
+        ChargeSpeed.text = StaticItemExplainer.ChargeSpeed.ToString();
         CriticalChance.text = StaticItemExplainer.CriticalChance.ToString();
         CriticalDamage.text = StaticItemExplainer.CriticalDamage.ToString();
         AttackRange.text = StaticItemExplainer.AttackRange.ToString();

@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4629a03363fd184d9250fcc4511db91, type: 3}
+  m_Name: Shortbow Of The Forest
+  m_EditorClassIdentifier: 
+  itemName: Shortbow Of The Forest
+  Description: 'Short but effective
+
+
+    +1% Critical Change
+
+    +1% Regeneration
+
+    +2%
+    Dash Amount
+
+    +2% Speed'
+  itemSprite: {fileID: -1121941909, guid: a9d048620e4211e418a9dae80217ca96, type: 3}
+  ChargeSpeed: 0
+  AttackDamage: 0
+  CriticalChance: 1
+  CriticalDamage: 0
+  AttackRange: 0
+  Lifesteal: 0
+  Regenaration: 1
+  DodgeChance: 0
+  DashCooldown: 0
+  DashAmount: 2
+  DoubleGoldChance: 0
+  Knockback: 0
+  Armor: 0
+  Speed: 2
+  Health: 0
+  Price: 21
+  ItemAmount: 0
+  isSpecial: 0
+  specialAbilityId: 0
+  RarityColor: 
+  ItemID: 0

@@ -10,6 +10,7 @@ public static class StaticItemExplainer
 
     public static string Explanation;
 
+    public static float ChargeSpeed;
     public static float CriticalChance;
     public static float CriticalDamage;
     public static float AttackRange;
