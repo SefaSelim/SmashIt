@@ -7,6 +7,8 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     public string itemName;
+
+    [TextArea(0, 10)]
     public string Description;
     
     public Sprite itemSprite;
@@ -16,6 +18,8 @@ public class Item : ScriptableObject
 
     [Header("On Screen")]
 
+    public float ChargeSpeed;
+    public float AttackDamage;
     public float CriticalChance;
     public float CriticalDamage;
     public float AttackRange;
@@ -28,6 +32,7 @@ public class Item : ScriptableObject
     public float Knockback;
     public float Armor;
     public float Speed;
+    public float Health;
 
     [Space(10)]
     public int Price;

@@ -7,7 +7,7 @@ public class StoreToInventory : MonoBehaviour
 {
     public static StoreToInventory instance;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
     }

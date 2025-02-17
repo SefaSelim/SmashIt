@@ -9,10 +9,6 @@ using UnityEngine.UI;
 public class ItemHandler : MonoBehaviour
 {
 
-    ItemHandler(Item ExternalItem)
-    {
-        Item = ExternalItem;
-    }
 
     public Item Item;
 
@@ -35,7 +31,6 @@ public class ItemHandler : MonoBehaviour
         }
         else
         {
-            Debug.Log("Item Added");
             image = GetComponent<Image>();
             button = GetComponent<Button>();
 
@@ -49,6 +44,7 @@ public class ItemHandler : MonoBehaviour
 
     public void AddNew()
     {
+        StaticItemExplainer.ChargeSpeed += Item.ChargeSpeed;
         StaticItemExplainer.CriticalChance += Item.CriticalChance;
         StaticItemExplainer.CriticalDamage += Item.CriticalDamage;
         StaticItemExplainer.AttackRange += Item.AttackRange;
@@ -61,6 +57,10 @@ public class ItemHandler : MonoBehaviour
         StaticItemExplainer.Knockback += Item.Knockback;
         StaticItemExplainer.Armor += Item.Armor;
         StaticItemExplainer.Speed += Item.Speed;
+
+        PlayerStats.AttackDamage += Item.AttackDamage;
+        PlayerStats.PlayerHealth += Item.Health;
+
 
         Item.ItemAmount++;
         StaticItemExplainer.ExistingItems.Add(Item);
@@ -72,6 +72,7 @@ public class ItemHandler : MonoBehaviour
 
         existItem.ItemAmount++;
 
+        StaticItemExplainer.ChargeSpeed += Item.ChargeSpeed;
         StaticItemExplainer.CriticalChance += Item.CriticalChance;
         StaticItemExplainer.CriticalDamage += Item.CriticalDamage;
         StaticItemExplainer.AttackRange += Item.AttackRange;
@@ -84,6 +85,9 @@ public class ItemHandler : MonoBehaviour
         StaticItemExplainer.Knockback += Item.Knockback;
         StaticItemExplainer.Armor += Item.Armor;
         StaticItemExplainer.Speed += Item.Speed;
+
+        PlayerStats.AttackDamage += Item.AttackDamage;
+        PlayerStats.PlayerHealth += Item.Health;
 
 
         Destroy(gameObject);

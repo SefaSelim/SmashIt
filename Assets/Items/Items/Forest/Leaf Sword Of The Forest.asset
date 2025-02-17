@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4629a03363fd184d9250fcc4511db91, type: 3}
+  m_Name: Leaf Sword Of The Forest
+  m_EditorClassIdentifier: 
+  itemName: Leaf Sword Of The Forest
+  Description: 'Light and fast
+
+
+    -2% Charge Speed
+
+    -1% Dash Cooldown
+
+    +3%
+    Critical Damage
+
+    +1% Critical Chance'
+  itemSprite: {fileID: -1127392675, guid: b6d1391cc93a82248a450664a2f32bc1, type: 3}
+  ChargeSpeed: -2
+  AttackDamage: 0
+  CriticalChance: 1
+  CriticalDamage: 3
+  AttackRange: 0
+  Lifesteal: 0
+  Regenaration: 0
+  DodgeChance: 0
+  DashCooldown: -1
+  DashAmount: 0
+  DoubleGoldChance: 0
+  Knockback: 0
+  Armor: 0
+  Speed: 0
+  Health: 0
+  Price: 30
+  ItemAmount: 1
+  isSpecial: 0
+  specialAbilityId: 0
+  RarityColor: 
+  ItemID: 0

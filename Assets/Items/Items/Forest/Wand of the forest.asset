@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4629a03363fd184d9250fcc4511db91, type: 3}
+  m_Name: Wand of the forest
+  m_EditorClassIdentifier: 
+  itemName: Wand of the forest
+  Description: "The Power Inside \nOf The Forest\n\n+4% Regeneration\n-1% Lifesteal\n-1%
+    Attack Damage"
+  itemSprite: {fileID: -1690233690, guid: a9d048620e4211e418a9dae80217ca96, type: 3}
+  ChargeSpeed: 0
+  AttackDamage: -1
+  CriticalChance: 0
+  CriticalDamage: 0
+  AttackRange: 0
+  Lifesteal: -1
+  Regenaration: 4
+  DodgeChance: 0
+  DashCooldown: 0
+  DashAmount: 0
+  DoubleGoldChance: 0
+  Knockback: 0
+  Armor: 0
+  Speed: 0
+  Health: 0
+  Price: 9
+  ItemAmount: 2
+  isSpecial: 0
+  specialAbilityId: 0
+  RarityColor: 
+  ItemID: 0

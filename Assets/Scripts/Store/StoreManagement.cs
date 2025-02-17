@@ -16,11 +16,7 @@ public class StoreManagement : MonoBehaviour
 
     private void Start()
     {
-        Item = StoreToInventory.instance.AllItems[Random.Range(0, StoreToInventory.instance.AllItems.Count)];
-
-        Image.sprite = Item.itemSprite;
-        Price.text = Item.Price.ToString();
-        Description.text = Item.Description.ToString();
+      SpawnNewItem();
     }
 
     public void BoughtItem()
@@ -49,5 +45,6 @@ public class StoreManagement : MonoBehaviour
         Image.sprite = Item.itemSprite;
         Price.text = Item.Price.ToString();
         Description.text = Item.Description.ToString();
+
     }
 }
