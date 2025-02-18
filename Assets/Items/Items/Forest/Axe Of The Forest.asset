@@ -32,7 +32,7 @@ MonoBehaviour:
   Speed: -1
   Health: 0
   Price: 17
-  ItemAmount: 1
+  ItemAmount: 0
   isSpecial: 0
   specialAbilityId: 0
   RarityColor: 
