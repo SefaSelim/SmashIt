@@ -9,5 +9,8 @@ public class EnemyStats : ScriptableObject
     public float speed;
     public float damage;
 
+    public float bulletspeed;
+    public float bulletcooldown;
+    
     public float health;
 }

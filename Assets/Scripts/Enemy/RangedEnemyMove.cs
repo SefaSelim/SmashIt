@@ -16,6 +16,7 @@ public class RangedEnemyMove : MonoBehaviour
     Vector3 enemy_position;
     public float shootCooldownTimer;
     public GameObject bulletOfRangedEnemy;
+    public EnemyStats enemyStats;
      bool isbulletshooted = false;
     
 
@@ -79,7 +80,7 @@ public class RangedEnemyMove : MonoBehaviour
     {
         _prefabs.PlayAnimation(PlayerState.MOVE, IndexPair[PlayerState.MOVE]);
         Vector3 direction = FindShortestPath();
-        transform.position += direction * RangedEnemyStats.rangedEnemySpeed * Time.deltaTime; 
+        transform.position += direction * enemyStats.speed * Time.deltaTime; 
        
 
     }
@@ -87,7 +88,7 @@ public class RangedEnemyMove : MonoBehaviour
     {
        
          shootCooldownTimer += Time.deltaTime;
-         if(shootCooldownTimer > RangedEnemyStats.rangedEnemyCooldown && !isbulletshooted)
+         if(shootCooldownTimer > enemyStats.bulletcooldown && !isbulletshooted)
          {
             //Shoot
             isbulletshooted = true;

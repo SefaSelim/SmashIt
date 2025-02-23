@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public PlayerHealth playerHealth;
+    public RangedEnemyMove rangedEnemyMove; 
     public float bulletspeed = 15f;
     public float bulletdamage = 10f;
      GameObject playerMovement;
@@ -12,9 +13,43 @@ public class Bullet : MonoBehaviour
      Vector3 enemy_position;// Start is called before the first frame update
     float timerForDestroy = 0;
     public Vector3 direction;
+    public string enemyStatsName = "RangedEnemy";
+    public EnemyStats enemyStats;
 
+
+     void Awake()
+{   
+    if (GameManager.Instance == null)
+    {
+        Debug.LogError("GameManager.Instance bulunamadı! Sahnedeki GameManager aktif mi?");
+        return;
+    }
+
+    if (GameManager.Instance.enemyStatsDatabase == null)
+    {
+        Debug.LogError("GameManager.Instance.enemyStatsDatabase atanmadı!");
+        return;
+    }
+
+    Debug.Log("GameManager ve enemyStatsDatabase bulundu.");
+    
+    enemyStats = GameManager.Instance.enemyStatsDatabase.GetStatsByName(enemyStatsName);
+
+    if (enemyStats == null)
+    {
+        Debug.LogError("enemyStats bulunamadı! enemyStatsName: " + enemyStatsName);
+    }
+    else
+    {
+        Debug.Log("enemyStats bulundu: " + enemyStats.enemyName);
+    }
+}
     void Start()
     {
+
+        bulletdamage =enemyStats.damage;
+        bulletspeed =enemyStats.bulletspeed;
+        
         playerMovement = GameObject.Find("PlayerCharacter");
         playerHealth = playerMovement.GetComponent<PlayerHealth>();
          target_position = playerMovement.transform.position; 

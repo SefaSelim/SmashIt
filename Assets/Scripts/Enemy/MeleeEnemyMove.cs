@@ -15,12 +15,41 @@ public class MeleeEnemyMove : MonoBehaviour
     Vector3 enemy_position;
     
     public EnemyStats enemyStats;
+    public string enemyStatsName;
 
+
+    void Awake()
+{   
+    if (GameManager.Instance == null)
+    {
+        Debug.LogError("GameManager.Instance bulunamadı! Sahnedeki GameManager aktif mi?");
+        return;
+    }
+
+    if (GameManager.Instance.enemyStatsDatabase == null)
+    {
+        Debug.LogError("GameManager.Instance.enemyStatsDatabase atanmadı!");
+        return;
+    }
+
+    Debug.Log("GameManager ve enemyStatsDatabase bulundu.");
     
+    enemyStats = GameManager.Instance.enemyStatsDatabase.GetStatsByName(enemyStatsName);
+
+    if (enemyStats == null)
+    {
+        Debug.LogError("enemyStats bulunamadı! enemyStatsName: " + enemyStatsName);
+    }
+    else
+    {
+        Debug.Log("enemyStats bulundu: " + enemyStats.enemyName);
+    }
+}
 
     void Start()
     
     {
+       
         if(unitRoot == null)
         {
             unitRoot = this.transform.GetChild(0).gameObject;
@@ -33,6 +62,7 @@ public class MeleeEnemyMove : MonoBehaviour
                 _prefabs.PopulateAnimationLists();
             }
         }
+       
 
         _prefabs.OverrideControllerInit();
 

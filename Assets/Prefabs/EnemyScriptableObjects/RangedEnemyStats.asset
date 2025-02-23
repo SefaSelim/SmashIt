@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44005ea25e8b8824d89bb1446b6a3749, type: 3}
   m_Name: RangedEnemyStats
   m_EditorClassIdentifier: 
-  enemyName: Melee Enemy
+  enemyName: RangedEnemy
   maxHealth: 100
   speed: 3
   damage: 10
+  bulletspeed: 10
+  bulletcooldown: 1
   health: 100

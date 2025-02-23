@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44005ea25e8b8824d89bb1446b6a3749, type: 3}
-  m_Name: MeleeEnemy
+  m_Script: {fileID: 11500000, guid: cd233580c9496ba4790882bc525edae2, type: 3}
+  m_Name: EnemyStatsDatabase
   m_EditorClassIdentifier: 
-  enemyName: Melee Enemy
-  maxHealth: 100
-  speed: 3
-  damage: 10
-  health: 100
+  enemyStatsList:
+  - {fileID: 11400000, guid: 5b3efd56d9b4b4843b949d98454d29f6, type: 2}
+  - {fileID: 11400000, guid: 4e7685b0c319b0a4189d1d465df07baa, type: 2}
