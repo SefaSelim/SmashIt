@@ -2,16 +2,20 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
-    public EnemyStatsDatabase enemyStatsDatabase;
+    public static GameManager Instance { get; private set; }
 
-    private void Awake()
+    public EnemyStatsDatabase enemyStatsDatabase; // Enemy veritabanı
+
+    void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        enemyStatsDatabase.GetStatsByName("MeleeEnemy");
-        DontDestroyOnLoad(gameObject); // Sahne değişse bile kalıcı olsun
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

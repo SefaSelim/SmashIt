@@ -19,6 +19,35 @@ public class RangedEnemyMove : MonoBehaviour
     public EnemyStats enemyStats;
      bool isbulletshooted = false;
     
+     public string enemyStatsName;
+
+    void Awake()
+    {   
+        if (GameManager.Instance == null)
+        {
+            Debug.LogError("GameManager.Instance bulunamadı! Sahnedeki GameManager aktif mi?");
+            return;
+        }
+
+        if (GameManager.Instance.enemyStatsDatabase == null)
+        {
+            Debug.LogError("GameManager.Instance.enemyStatsDatabase atanmadı!");
+            return;
+        }
+
+        Debug.Log("GameManager ve enemyStatsDatabase bulundu.");
+        
+        enemyStats = GameManager.Instance.enemyStatsDatabase.GetStatsByName(enemyStatsName);
+
+        if (enemyStats == null)
+        {
+            Debug.LogError("enemyStats bulunamadı! enemyStatsName: " + enemyStatsName);
+        }
+        else
+        {
+            Debug.Log("enemyStats bulundu: " + enemyStats.enemyName);
+        }
+    }
 
     void Start()
     

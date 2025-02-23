@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class WaveSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
+   public float currentWave = 0;
     void Start()
     {
         
-    }
 
-    // Update is called once per frame
+    }
     void Update()
     {
-        
+
     }
 }

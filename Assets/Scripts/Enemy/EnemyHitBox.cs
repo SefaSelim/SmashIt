@@ -14,6 +14,7 @@ public class EnemyHitBox : MonoBehaviour
     float knockbackDebugTimer;
     public EnemyHealth _EnemyHealth;
     public PlayerHealth _PlayerHealth;
+     public string enemyStatsName;
 
     public EnemyStats enemyStats;
 
@@ -21,6 +22,33 @@ public class EnemyHitBox : MonoBehaviour
     [SerializeField] private GameObject Player;
     [SerializeField] private float knockbackForce;
 
+    void Awake()
+    {   
+        if (GameManager.Instance == null)
+        {
+            Debug.LogError("GameManager.Instance bulunamadı! Sahnedeki GameManager aktif mi?");
+            return;
+        }
+
+        if (GameManager.Instance.enemyStatsDatabase == null)
+        {
+            Debug.LogError("GameManager.Instance.enemyStatsDatabase atanmadı!");
+            return;
+        }
+
+        Debug.Log("GameManager ve enemyStatsDatabase bulundu.");
+        
+        enemyStats = GameManager.Instance.enemyStatsDatabase.GetStatsByName(enemyStatsName);
+
+        if (enemyStats == null)
+        {
+            Debug.LogError("enemyStats bulunamadı! enemyStatsName: " + enemyStatsName);
+        }
+        else
+        {
+            Debug.Log("enemyStats bulundu: " + enemyStats.enemyName);
+        }
+    }
      void Start()
     {   
           _EnemyHealth = GetComponent<EnemyHealth>();
