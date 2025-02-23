@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour
 {
     [HideInInspector] public float enemyHealth;
     [HideInInspector] public float maxEnemyHealth;
+    public EnemyStats enemyStats;
 
     [SerializeField] private CoinSpawner coinSpawner;
     public int CoinEarningFromEnemy;
@@ -18,8 +19,8 @@ public class EnemyHealth : MonoBehaviour
     {
         if (gameObject.GetComponent<MeleeEnemyMove>() != null) //Düşman melee ise ranged ise rangedstats eklenmeli
         {
-            enemyHealth = MeleeEnemyStats.meleeEnemyHealth;
-            maxEnemyHealth = MeleeEnemyStats.meleeEnemyMaxHealth;
+            enemyHealth = enemyStats.health;
+            maxEnemyHealth = enemyStats.health;
         }
     }
 

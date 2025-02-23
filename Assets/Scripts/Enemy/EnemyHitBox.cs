@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
 public class EnemyHitBox : MonoBehaviour
 {
     public float enemyArmor = 1f;
@@ -13,6 +14,8 @@ public class EnemyHitBox : MonoBehaviour
     float knockbackDebugTimer;
     public EnemyHealth _EnemyHealth;
     public PlayerHealth _PlayerHealth;
+
+    public EnemyStats enemyStats;
 
     [SerializeField] private Rigidbody2D EnemyRB;
     [SerializeField] private GameObject Player;
@@ -60,7 +63,7 @@ public class EnemyHitBox : MonoBehaviour
     {
          if(collision.gameObject.CompareTag("Player") && timer > enemyHitCooldown && !PlayerStats.IsDashing)
             {
-                _PlayerHealth.TakeDamage(MeleeEnemyStats.enemyGivenDamage);
+                _PlayerHealth.TakeDamage(enemyStats.damage);
                 timer = 0;
             }
     }

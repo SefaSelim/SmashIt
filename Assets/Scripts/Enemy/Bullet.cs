@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public PlayerHealth playerHealth;
     public float bulletspeed = 15f;
     public float bulletdamage = 10f;
      GameObject playerMovement;
@@ -15,6 +16,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         playerMovement = GameObject.Find("PlayerCharacter");
+        playerHealth = playerMovement.GetComponent<PlayerHealth>();
          target_position = playerMovement.transform.position; 
          enemy_position = transform.position; 
         direction = FindShortestPath();
@@ -45,7 +47,7 @@ public class Bullet : MonoBehaviour
     {
         if(collision.tag == "Player" && !PlayerStats.IsDashing)
         {
-            PlayerStats.PlayerHealth -= bulletdamage;
+          playerHealth.TakeDamage(bulletdamage);
         }
     }
 }
