@@ -16,8 +16,38 @@ public class RangedEnemyMove : MonoBehaviour
     Vector3 enemy_position;
     public float shootCooldownTimer;
     public GameObject bulletOfRangedEnemy;
+    public EnemyStats enemyStats;
      bool isbulletshooted = false;
     
+     public string enemyStatsName;
+
+    void Awake()
+    {   
+        if (GameManager.Instance == null)
+        {
+            Debug.LogError("GameManager.Instance bulunamadı! Sahnedeki GameManager aktif mi?");
+            return;
+        }
+
+        if (GameManager.Instance.enemyStatsDatabase == null)
+        {
+            Debug.LogError("GameManager.Instance.enemyStatsDatabase atanmadı!");
+            return;
+        }
+
+        Debug.Log("GameManager ve enemyStatsDatabase bulundu.");
+        
+        enemyStats = GameManager.Instance.enemyStatsDatabase.GetStatsByName(enemyStatsName);
+
+        if (enemyStats == null)
+        {
+            Debug.LogError("enemyStats bulunamadı! enemyStatsName: " + enemyStatsName);
+        }
+        else
+        {
+            Debug.Log("enemyStats bulundu: " + enemyStats.enemyName);
+        }
+    }
 
     void Start()
     
@@ -79,7 +109,7 @@ public class RangedEnemyMove : MonoBehaviour
     {
         _prefabs.PlayAnimation(PlayerState.MOVE, IndexPair[PlayerState.MOVE]);
         Vector3 direction = FindShortestPath();
-        transform.position += direction * RangedEnemyStats.rangedEnemySpeed * Time.deltaTime; 
+        transform.position += direction * enemyStats.speed * Time.deltaTime; 
        
 
     }
@@ -87,7 +117,7 @@ public class RangedEnemyMove : MonoBehaviour
     {
        
          shootCooldownTimer += Time.deltaTime;
-         if(shootCooldownTimer > RangedEnemyStats.rangedEnemyCooldown && !isbulletshooted)
+         if(shootCooldownTimer > enemyStats.bulletcooldown && !isbulletshooted)
          {
             //Shoot
             isbulletshooted = true;

@@ -13,12 +13,43 @@ public class MeleeEnemyMove : MonoBehaviour
     public PlayerMovement playerMovement;
     Vector3 target_position;
     Vector3 enemy_position;
-
     
+    public EnemyStats enemyStats;
+    public string enemyStatsName;
+
+
+    void Awake()
+{   
+    if (GameManager.Instance == null)
+    {
+        Debug.LogError("GameManager.Instance bulunamadı! Sahnedeki GameManager aktif mi?");
+        return;
+    }
+
+    if (GameManager.Instance.enemyStatsDatabase == null)
+    {
+        Debug.LogError("GameManager.Instance.enemyStatsDatabase atanmadı!");
+        return;
+    }
+
+    Debug.Log("GameManager ve enemyStatsDatabase bulundu.");
+    
+    enemyStats = GameManager.Instance.enemyStatsDatabase.GetStatsByName(enemyStatsName);
+
+    if (enemyStats == null)
+    {
+        Debug.LogError("enemyStats bulunamadı! enemyStatsName: " + enemyStatsName);
+    }
+    else
+    {
+        Debug.Log("enemyStats bulundu: " + enemyStats.enemyName);
+    }
+}
 
     void Start()
     
     {
+       
         if(unitRoot == null)
         {
             unitRoot = this.transform.GetChild(0).gameObject;
@@ -31,6 +62,7 @@ public class MeleeEnemyMove : MonoBehaviour
                 _prefabs.PopulateAnimationLists();
             }
         }
+       
 
         _prefabs.OverrideControllerInit();
 
@@ -65,7 +97,7 @@ public class MeleeEnemyMove : MonoBehaviour
     void MoveMeleeEnemy()
     {
         Vector3 direction = FindShortestPath();
-        transform.position += direction * MeleeEnemyStats.meleeEnemySpeed * Time.deltaTime; 
+        transform.position += direction * enemyStats.speed * Time.deltaTime; 
         if(transform.position.x < playerMovement.transform.position.x)
         unitRoot.transform.localScale = new Vector3(-1,1,1);
         else if (transform.position.x > playerMovement.transform.position.x)
