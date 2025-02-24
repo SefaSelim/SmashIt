@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: MeleeEnemy
   m_EditorClassIdentifier: 
   enemyName: MeleeEnemy
-  maxHealth: 100
+  maxHealth: 10
   speed: 3
   damage: 10
   bulletspeed: 0
   bulletcooldown: 0
-  health: 100
+  health: 10

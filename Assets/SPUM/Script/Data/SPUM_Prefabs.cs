@@ -34,52 +34,76 @@ public class SPUM_Prefabs : MonoBehaviour
     public List<AnimationClip> DEBUFF_List = new();
     public List<AnimationClip> DEATH_List = new();
     public List<AnimationClip> OTHER_List = new();
-    public void OverrideControllerInit()
+   public void OverrideControllerInit()
+{   
+    if (_anim == null)
     {
-        Animator animator = _anim;
-        OverrideController = new AnimatorOverrideController();
-        OverrideController.runtimeAnimatorController= animator.runtimeAnimatorController;
+        Debug.LogError("Animator component is missing.");
+        return;
+    }
 
-        // 모든 애니메이션 클립을 가져옵니다
-        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+    if (_anim.runtimeAnimatorController == null)
+    {
+        Debug.LogError("Animator does not have a runtimeAnimatorController assigned.");
+        return;
+    }
 
-        foreach (AnimationClip clip in clips)
+    // Yeni OverrideController oluştur ve temel animator controller'ı ata
+    OverrideController = new AnimatorOverrideController(_anim.runtimeAnimatorController);
+
+    // RuntimeAnimatorController'dan tüm animasyon kliplerini al
+    AnimationClip[] clips = OverrideController.animationClips;
+    
+    if (clips.Length == 0)
+    {
+        Debug.LogWarning("No animation clips found in the Animator Controller.");
+        return;
+    }
+
+    // OverrideController'a klipleri ekle
+    foreach (AnimationClip clip in clips)
+    {
+        OverrideController[clip.name] = clip;
+    }
+
+    // Animator'daki runtimeAnimatorController'ı OverrideController ile değiştir
+    _anim.runtimeAnimatorController = OverrideController;
+
+    // StateAnimationPairs için animasyon listelerini eşle
+    foreach (PlayerState state in Enum.GetValues(typeof(PlayerState)))
+    {
+        var stateText = state.ToString();
+        StateAnimationPairs[stateText] = new List<AnimationClip>();
+
+        switch (state)
         {
-            // 복제된 클립으로 오버라이드합니다
-            OverrideController[clip.name] = clip;
-        }
-
-        animator.runtimeAnimatorController= OverrideController;
-        foreach (PlayerState state in Enum.GetValues(typeof(PlayerState)))
-        {
-            var stateText = state.ToString();
-            StateAnimationPairs[stateText] = new List<AnimationClip>();
-            switch (stateText)
-            {
-                case "IDLE":
-                    StateAnimationPairs[stateText] = IDLE_List;
-                    break;
-                case "MOVE":
-                    StateAnimationPairs[stateText] = MOVE_List;
-                    break;
-                case "ATTACK":
-                    StateAnimationPairs[stateText] = ATTACK_List;
-                    break;
-                case "DAMAGED":
-                    StateAnimationPairs[stateText] = DAMAGED_List;
-                    break;
-                case "DEBUFF":
-                    StateAnimationPairs[stateText] = DEBUFF_List;
-                    break;
-                case "DEATH":
-                    StateAnimationPairs[stateText] = DEATH_List;
-                    break;
-                case "OTHER":
-                    StateAnimationPairs[stateText] = OTHER_List;
-                    break;
-            }
+            case PlayerState.IDLE:
+                StateAnimationPairs[stateText] = IDLE_List;
+                break;
+            case PlayerState.MOVE:
+                StateAnimationPairs[stateText] = MOVE_List;
+                break;
+            case PlayerState.ATTACK:
+                StateAnimationPairs[stateText] = ATTACK_List;
+                break;
+            case PlayerState.DAMAGED:
+                StateAnimationPairs[stateText] = DAMAGED_List;
+                break;
+            case PlayerState.DEBUFF:
+                StateAnimationPairs[stateText] = DEBUFF_List;
+                break;
+            case PlayerState.DEATH:
+                StateAnimationPairs[stateText] = DEATH_List;
+                break;
+            case PlayerState.OTHER:
+                StateAnimationPairs[stateText] = OTHER_List;
+                break;
         }
     }
+
+    Debug.Log("OverrideController successfully initialized.");
+}
+
     public bool allListsHaveItemsExist(){
         List<List<AnimationClip>> allLists = new List<List<AnimationClip>>()
         {
