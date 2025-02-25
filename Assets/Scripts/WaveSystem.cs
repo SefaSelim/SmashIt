@@ -92,9 +92,10 @@ public class WaveSystem : MonoBehaviour
             currentWave++;
             
             iswaveclear = true;
-            timerforwave = 0; 
-            
-            
+            timerforwave = 0;
+
+            // tüm düþmanlar öldüðünde     StoreManaging.Instance.Onclick();   yaparsýn
+            // veya tüm düþmanlar öldükten sonra bi süre taný o sürede goldlarý toplayabilsin ondan sonra kodu yazarsýn
         }
     }
 
