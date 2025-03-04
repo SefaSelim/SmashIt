@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class WaveSystem : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class WaveSystem : MonoBehaviour
     float timerforwave = 0;
     public TextMeshProUGUI timertext;
     bool iswaveclear = false;
+    public Button buttonToMarket;
 
     void Start()
     {
@@ -29,6 +31,7 @@ public class WaveSystem : MonoBehaviour
         }
 
         CreateWave();
+        buttonToMarket.gameObject.SetActive(false);
     }
 
     void Update()
@@ -94,17 +97,25 @@ public class WaveSystem : MonoBehaviour
             iswaveclear = true;
             timerforwave = 0;
 
-            // tüm düþmanlar öldüðünde     StoreManaging.Instance.Onclick();   yaparsýn
-            // veya tüm düþmanlar öldükten sonra bi süre taný o sürede goldlarý toplayabilsin ondan sonra kodu yazarsýn
+            // tï¿½m dï¿½ï¿½manlar ï¿½ldï¿½ï¿½ï¿½nde     StoreManaging.Instance.Onclick();   yaparsï¿½n
+            // veya tï¿½m dï¿½ï¿½manlar ï¿½ldï¿½kten sonra bi sï¿½re tanï¿½ o sï¿½rede goldlarï¿½ toplayabilsin ondan sonra kodu yazarsï¿½n
         }
     }
+    void EndTheWave()
+    {
+        timertext.text = "WAVE CLEAR";
+        buttonToMarket.gameObject.SetActive(true);
+        Time.timeScale = 0;
 
+
+    }
     void UpdateTimerText()
     {
         
         if(iswaveclear)
         {
-        timertext.text = "WAVE CLEAR";}
+            EndTheWave();
+        }
         else
         {
         int minutes = Mathf.FloorToInt(timerforwave / 60);
