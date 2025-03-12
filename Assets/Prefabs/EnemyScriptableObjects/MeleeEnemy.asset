@@ -18,4 +18,4 @@ MonoBehaviour:
   damage: 10
   bulletspeed: 0
   bulletcooldown: 0
-  health: 10
+  health: 100

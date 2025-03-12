@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: RangedEnemy
   m_EditorClassIdentifier: 
   enemyName: RangedEnemy
-  maxHealth: 100
+  maxHealth: 50
   speed: 3
   damage: 10
   bulletspeed: 10
   bulletcooldown: 1
-  health: 100
+  health: 50
