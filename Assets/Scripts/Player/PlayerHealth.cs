@@ -27,5 +27,6 @@ public class PlayerHealth : MonoBehaviour
     private void PlayerDie()
     {
         gameObject.SetActive(false); // Animasyon eklenecek
+        Time.timeScale = 0;
     }
 }

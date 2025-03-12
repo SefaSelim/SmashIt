@@ -41,6 +41,7 @@ public class WaveSystem : MonoBehaviour
 
     void Update()
     {
+     
         timerforspawnenemy += Time.deltaTime;
         timerforwave += Time.deltaTime; 
         UpdateTimerText();
@@ -51,6 +52,7 @@ public class WaveSystem : MonoBehaviour
         }
 
         CheckForWave();
+        
     }
 
    void CreateWave()
@@ -125,5 +127,8 @@ public class WaveSystem : MonoBehaviour
             timertext.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
     }
+
+  
+
 }
 

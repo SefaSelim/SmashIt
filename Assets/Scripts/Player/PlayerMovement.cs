@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogWarning("unitRoot is null! Assign the unitRoot GameObject in the Inspector.");
         }
 
-        Debug.Log($"Mouse Position: {Input.mousePosition} | World Mouse Position: {worldMousePos} | Character Position: {characterPos}");
+       
     }
 }
 
