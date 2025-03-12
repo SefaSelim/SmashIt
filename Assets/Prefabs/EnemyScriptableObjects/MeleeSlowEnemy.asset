@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44005ea25e8b8824d89bb1446b6a3749, type: 3}
-  m_Name: RangedEnemy
+  m_Name: MeleeSlowEnemy
   m_EditorClassIdentifier: 
-  enemyName: RangedEnemy
-  maxHealth: 50
-  speed: 3
-  damage: 10
+  enemyName: MeleeSlowEnemy
+  maxHealth: 200
+  speed: 2
+  damage: 20
   bulletspeed: 10
   bulletcooldown: 1
-  health: 50
+  health: 200
