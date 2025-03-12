@@ -7,6 +7,6 @@ public class ButtonToMarket : MonoBehaviour
 {
     public void ChangeTheScreen()
     {
-        SceneManager.LoadScene (sceneName: "Inventory");
+       StoreManaging.Instance.Onclick();
     }
 }
