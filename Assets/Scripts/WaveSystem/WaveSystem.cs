@@ -3,14 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+[System.Serializable]
 
+public class EnemyCount
+{
+    public string enemyType;
+    public int count;
+}
+
+[System.Serializable]
+public class WaveData
+{
+    public List<EnemyCount> enemyCounts = new List<EnemyCount>(); // Dictionary yerine List
+    public float enemySpawnCooldown;
+    public float timeforwinningwave;
+}
 public class WaveSystem : MonoBehaviour
 {
     public Transform playertransform;
     public List<WaveData> waveDatas = new List<WaveData>();
-    public List<GameObject> enemyTypes = new List<GameObject>();
-    GameObject meleeEnemy;
-    GameObject rangedEnemy;
+    public List<GameObject> enemyTypes = new List<GameObject>(); 
+    
     public int currentWave = 0;
     float timerforspawnenemy = 0;
     float timerforwave = 0;
@@ -20,15 +33,7 @@ public class WaveSystem : MonoBehaviour
 
     void Start()
     {
-        meleeEnemy = enemyTypes.Find(e => e.name == "MeleeEnemy");
-        rangedEnemy = enemyTypes.Find(e => e.name == "RangedEnemy");
-
-        Debug.Log($"Melee Enemy: {meleeEnemy}, Ranged Enemy: {rangedEnemy}");
-
-        if (meleeEnemy == null || rangedEnemy == null)
-        {
-            Debug.LogError("Enemy prefab not found! Check names in enemyTypes list.");
-        }
+        Debug.Log($"Available Enemy Types: {string.Join(", ", enemyTypes.ConvertAll(e => e.name))}");
 
         CreateWave();
         buttonToMarket.gameObject.SetActive(false);
@@ -41,7 +46,6 @@ public class WaveSystem : MonoBehaviour
         UpdateTimerText();
         
         if (currentWave < waveDatas.Count && timerforspawnenemy > waveDatas[currentWave].enemySpawnCooldown)
-
         {
             CreateWave();
         }
@@ -49,22 +53,25 @@ public class WaveSystem : MonoBehaviour
         CheckForWave();
     }
 
-    void CreateWave()
+   void CreateWave()
+{
+    WaveData currentWaveData = waveDatas[currentWave];
+
+    foreach (var enemyData in currentWaveData.enemyCounts)
     {
-        for (int i = 0; i < waveDatas[currentWave].meleeEnemyCount; i++)
+        GameObject enemyPrefab = enemyTypes.Find(e => e.name == enemyData.enemyType);
+        if (enemyPrefab != null)
         {
-            Vector3 spawnPosition = GetSpawnPosition();
-            Instantiate(meleeEnemy, spawnPosition, Quaternion.identity);
+            for (int i = 0; i < enemyData.count; i++)
+            {
+                Vector3 spawnPosition = GetSpawnPosition();
+                Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            }
         }
-
-        for (int i = 0; i < waveDatas[currentWave].rangedEnemyCount; i++)
-        {
-            Vector3 spawnPosition = GetSpawnPosition();
-            Instantiate(rangedEnemy, spawnPosition, Quaternion.identity);
-        }
-
-        timerforspawnenemy = 0;
     }
+
+    timerforspawnenemy = 0;
+}
 
     Vector3 GetSpawnPosition()
     {
@@ -93,44 +100,30 @@ public class WaveSystem : MonoBehaviour
         if (currentWave < waveDatas.Count && timerforwave >= waveDatas[currentWave].timeforwinningwave) 
         {
             currentWave++;
-            
             iswaveclear = true;
             timerforwave = 0;
-
-            // t�m d��manlar �ld���nde     StoreManaging.Instance.Onclick();   yapars�n
-            // veya t�m d��manlar �ld�kten sonra bi s�re tan� o s�rede goldlar� toplayabilsin ondan sonra kodu yazars�n
         }
     }
+    
     void EndTheWave()
     {
         timertext.text = "WAVE CLEAR";
         buttonToMarket.gameObject.SetActive(true);
         Time.timeScale = 0;
-
-
     }
+
     void UpdateTimerText()
     {
-        
-        if(iswaveclear)
+        if (iswaveclear)
         {
             EndTheWave();
         }
         else
         {
-        int minutes = Mathf.FloorToInt(timerforwave / 60);
-        int seconds = Mathf.FloorToInt(timerforwave % 60);
-        timertext.text = string.Format("{0:00}:{1:00}", minutes, seconds);}
-
+            int minutes = Mathf.FloorToInt(timerforwave / 60);
+            int seconds = Mathf.FloorToInt(timerforwave % 60);
+            timertext.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
     }
 }
 
-[System.Serializable]
-public class WaveData
-{
-    public int meleeEnemyCount;
-    public int rangedEnemyCount;
-
-    public float enemySpawnCooldown;
-    public float timeforwinningwave;
-}
