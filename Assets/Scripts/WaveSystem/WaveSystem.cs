@@ -111,7 +111,7 @@ public class WaveSystem : MonoBehaviour
     {
         timertext.text = "WAVE CLEAR";
         buttonToMarket.gameObject.SetActive(true);
-        Time.timeScale = 0;
+        Time.timeScale = 0;   // baska sekil cözmemiz lazim
     }
 
     void UpdateTimerText()
