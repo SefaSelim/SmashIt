@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
 {
     if (mainCamera == null)
     {
-        Debug.LogWarning("Main Camera is null! Assign the mainCamera in the Inspector.");
+        //Debug.LogWarning("Main Camera is null! Assign the mainCamera in the Inspector.");
         return;
     }
 

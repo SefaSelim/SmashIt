@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 [System.Serializable]
 
 public class EnemyCount
@@ -33,7 +34,7 @@ public class WaveSystem : MonoBehaviour
 
     void Start()
     {
-        Debug.Log($"Available Enemy Types: {string.Join(", ", enemyTypes.ConvertAll(e => e.name))}");
+        //Debug.Log($"Available Enemy Types: {string.Join(", ", enemyTypes.ConvertAll(e => e.name))}");
 
         CreateWave();
         buttonToMarket.gameObject.SetActive(false);
@@ -110,8 +111,10 @@ public class WaveSystem : MonoBehaviour
     void EndTheWave()
     {
         timertext.text = "WAVE CLEAR";
-        buttonToMarket.gameObject.SetActive(true);
-        Time.timeScale = 0;   // baska sekil cözmemiz lazim
+        SceneManager.LoadScene("Inventory");
+
+        //buttonToMarket.gameObject.SetActive(true);
+        //Time.timeScale = 0;   // baska sekil cözmemiz lazim
     }
 
     void UpdateTimerText()

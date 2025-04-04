@@ -86,6 +86,20 @@ public class ItemHandler : MonoBehaviour
         StaticItemExplainer.Armor += Item.Armor;
         StaticItemExplainer.Speed += Item.Speed;
 
+        PlayerStats.ChargeSpeed += Item.ChargeSpeed;
+        PlayerStats.CriticalChance += Item.CriticalChance;
+        PlayerStats.CriticalDamage += Item.CriticalDamage;
+        PlayerStats.AttackRangeRatio += Item.AttackRange;
+        PlayerStats.Lifesteal += Item.Lifesteal;
+        PlayerStats.Regenaration += Item.Regenaration;
+        PlayerStats.DodgeChance += Item.DodgeChance;
+        PlayerStats.DashCooldown += Item.DashCooldown;
+        PlayerStats.DashAmount += Item.DashAmount;
+        PlayerStats.DoubleGoldChance += Item.DoubleGoldChance;
+        PlayerStats.KnokbackForce += Item.Knockback;
+        PlayerStats.Armor += Item.Armor;
+        PlayerStats.Speed += Item.Speed;
+
         PlayerStats.AttackDamage += Item.AttackDamage;
         PlayerStats.PlayerHealth += Item.Health;
 

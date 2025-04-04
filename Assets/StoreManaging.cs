@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StoreManaging : MonoBehaviour
 {
@@ -16,17 +17,7 @@ public class StoreManaging : MonoBehaviour
 
     public void Onclick()
     {
-        if (isOpen)
-        {
-            isOpen = !isOpen;
-            Store.SetActive(false);
-
-        }
-        else
-        {
-            isOpen = !isOpen;
-            Store.SetActive(true);
-        }
+        SceneManager.LoadScene("Inventory");
     }
 
 }
