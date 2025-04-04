@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonToMarket : MonoBehaviour
+public class NextWave : MonoBehaviour
 {
-    public void ChangeTheScreen()
+  public void StoreToWave()
     {
-       SceneManager.LoadScene("Inventory");
+        SceneManager.LoadScene("Combined");
     }
 }

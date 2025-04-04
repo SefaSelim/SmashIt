@@ -13,7 +13,7 @@ public static class StaticItemExplainer
     public static float ChargeSpeed;
     public static float CriticalChance;
     public static float CriticalDamage;
-    public static float AttackRange;
+    public static float AttackRange = 100f;
     public static float Lifesteal;
     public static float Regenaration;
     public static float DodgeChance;

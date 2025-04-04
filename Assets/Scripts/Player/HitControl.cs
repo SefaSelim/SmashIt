@@ -12,6 +12,7 @@ public class HitControl : MonoBehaviour
     public float currentOpacity; // Current opacity value
     private float ChargeAmount; // 0f - 1f
 
+
     public float timeBetweenHits = 0.5f;
     private float timer2 = 0f;
 
@@ -39,6 +40,7 @@ public class HitControl : MonoBehaviour
     void Update()
     {
         timer2 += Time.deltaTime;
+
 
         if (Input.GetMouseButton(0) && timer2 >= timeBetweenHits) // Holding the mouse button
         {

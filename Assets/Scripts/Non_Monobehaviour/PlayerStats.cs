@@ -5,7 +5,6 @@ using UnityEngine;
 public static class PlayerStats
 {
     //ENEMYHITBOX.CS
-    public static float KnokbackForce = 10f;            // �tme kuvveti
     public static float KnockbackDuration = 0.15f;      // �tmenin ne kadar s�re uygulanaca��
     public static bool IsDashing = false;               // is player dashing
 
@@ -26,8 +25,24 @@ public static class PlayerStats
 
     //COINSPAWNER.CS
     public static int CoinAmount = 200;                     
-    public static int GemAmount = 0;                     
+    public static int GemAmount = 0;
 
+
+    //STORE STATS
+
+    public static float ChargeSpeed;
+    public static float CriticalChance;
+    public static float CriticalDamage;
+    public static float AttackRangeRatio = 100f;       //baglanamadi amina kodumun seysi
+    public static float Lifesteal;
+    public static float Regenaration;
+    public static float DodgeChance;
+    public static float DashCooldown;
+    public static float DashAmount;
+    public static float DoubleGoldChance;
+    public static float KnokbackForce = 10f;    //baglandi
+    public static float Armor;
+    public static float Speed;
 
 
 
